@@ -6,7 +6,7 @@ public abstract class AbstractSort {
      * @param input String with , eg:1,2,3,4
      * @return asc
      */
-    abstract String[] sort(String input);
+    abstract int[] sort(int[] input);
 
     /**
      * 交换in中i,j,的位置
@@ -14,8 +14,8 @@ public abstract class AbstractSort {
      * @param i
      * @param j
      */
-    static void swap(String[] in, int i, int j) {
-        String temp = in[i];
+    static void swap(int[] in, int i, int j) {
+        int temp = in[i];
         in[i] = in[j];
         in[j] = temp;
     }

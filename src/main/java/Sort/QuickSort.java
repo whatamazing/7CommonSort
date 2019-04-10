@@ -1,18 +1,17 @@
 package Sort;
 
 /**
- * 快速排序，o(nlgn)，
+ * 快速排序，平均时间复杂度o(nlgn)，不稳定排序，辅助空间o(nlgn)
  */
 public class QuickSort extends AbstractSort {
     @Override
-    String[] sort(String input) {
-        String[] in = input.split(",");
+    int[] sort(int[] in) {
         quickSort(in, 0, in.length-1);
         return in;
     }
 
     //递归调用
-    private void quickSort(String[] in, int left, int right) {
+    private void quickSort(int[] in, int left, int right) {
         if (left < right) {
             int index = adjustArray(in, left, right);
             quickSort(in, left, index - 1);
@@ -21,17 +20,18 @@ public class QuickSort extends AbstractSort {
     }
 
     //返回基准点排序后所在的位置
-    private int adjustArray(String[] in, int left, int right) {
-        int x = Integer.valueOf(in[left]);
+    private int adjustArray(int[] in, int left, int right) {
+        //默认选择第一个为基准点
+        int x = in[left];
         while (left < right) {
-            while (left < right && Integer.valueOf(in[right]) >= x) {
+            while (left < right && in[right] >= x) {
                 right--;
             }
             if (left < right) {
                 in[left] = in[right];
                 left++;
             }
-            while (left < right && Integer.valueOf(in[left]) < x) {
+            while (left < right && in[left] <= x) {
                 left++;
             }
             if (left < right) {
@@ -39,7 +39,7 @@ public class QuickSort extends AbstractSort {
                 right--;
             }
         }
-        in[left] = String.valueOf(x);
+        in[left] = x;
         return left;
     }
 }
