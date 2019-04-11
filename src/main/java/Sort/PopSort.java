@@ -11,10 +11,11 @@ public class PopSort extends AbstractSort {
             //递增排序，第一次需要把最大的冒到最后，第二次再把次大的冒到倒数第二的位置，以此类推
             boolean isOrder = true;
             for (int j = 1; j < in.length - i; j++) {
-                if (in[j - 1] > in[j]) {
-                    isOrder = false;
-                    swap(in, j - 1, j);
+                if (in[j - 1] <= in[j]) {
+                    continue;
                 }
+                isOrder = false;
+                swap(in, j - 1, j);
             }
             if (isOrder)
                 break;

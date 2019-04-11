@@ -11,10 +11,11 @@ public class SelectionOrder extends AbstractSort{
             int index = 0;
             //找出最小的，放在第1位，再从剩下的找出最小的，放在第二位，以此类推
             for (int j = i; j < in.length; j++) {
-                if (min > in[j]) {
-                    min = in[j];
-                    index = j;
+                if(min <= in[j]){
+                    continue;
                 }
+                min = in[j];
+                index = j;
             }
             swap(in, i, index);
         }

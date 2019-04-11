@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SortTest {
     public static void main(String[] args) {
-        int[] input = new int[]{9,6,88,65,7,4,4,4,3,2,1,90,66,2,33,33,31,2};
+        int[] input = new int[]{9,9,77,66,6,88,65,7,4,4,4,3,2,1,90,66,2,33,33,31,2};
         AbstractSort s1 = new PopSort();
         AbstractSort s2 = new SelectionOrder();
         AbstractSort s3 = new InsertSort();

@@ -8,7 +8,7 @@ public class InsertSort extends AbstractSort {
     int[] sort(int[] in) {
         //默认前i个都是已排好序的
         for (int i = 0; i < in.length-1; i++) {
-            for (int j = 0; j <= i; j++) {
+            for (int j = i; j < 0; j--) {
                 if (in[i + 1] < in[j]) {
                     //将i+1处的数插入到j
                     insert(in, j, i + 1);
