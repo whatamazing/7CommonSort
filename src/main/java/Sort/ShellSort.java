@@ -8,19 +8,22 @@ package Sort;
 public class ShellSort extends AbstractSort {
 
     @Override
-    int[] sort(int[] in) {
+    int[] sort(int[] o) {
+
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
+
         for (int gap = in.length / 2; gap > 0; gap /= 2) //步长
             //总共分为gap组数据，分别进行直接插入排序
             for (int i = 0; i < gap; i++) {
                 //每组数据
-                for (int j = i + gap; j < in.length; j += gap) {
-                    if (in[j - gap] <= in[j]) {
+                for (int j = i; j + gap < in.length; j += gap) {
+                    if (in[j] <= in[j + gap]) {
                         continue;
                     }
-
                     //若前面大于后面
-                    int temp = in[j]; //缓存后面的值
-                    int k = j - gap;
+                    int temp = in[j+gap]; //缓存后面的值
+                    int k = j;
                     // 开始遍历比较这组数据，从第一个开始看，假定前面k个都是有序数组，寻找位置插入temp
                     while (k >= 0 && in[k] > temp) {
                         // 直接交换效率低，转而算出最终位置，再交换
@@ -31,7 +34,6 @@ public class ShellSort extends AbstractSort {
                         k -= gap;
                     }
                     in[k + gap] = temp;
-
                 }
             }
         return in;

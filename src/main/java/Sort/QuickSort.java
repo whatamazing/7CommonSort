@@ -5,7 +5,9 @@ package Sort;
  */
 public class QuickSort extends AbstractSort {
     @Override
-    int[] sort(int[] in) {
+    int[] sort(int[] o) {
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
         quickSort(in, 0, in.length-1);
         return in;
     }

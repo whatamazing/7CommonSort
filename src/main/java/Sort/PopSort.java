@@ -6,7 +6,10 @@ package Sort;
 public class PopSort extends AbstractSort {
 
     @Override
-    public int[] sort(int[] in) {
+    public int[] sort(int[] o) {
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
+
         for (int i = 0; i < in.length; i++) {
             //递增排序，第一次需要把最大的冒到最后，第二次再把次大的冒到倒数第二的位置，以此类推
             boolean isOrder = true;

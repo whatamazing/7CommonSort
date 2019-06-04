@@ -5,18 +5,26 @@ package Sort;
  */
 public class InsertSort extends AbstractSort {
     @Override
-    int[] sort(int[] in) {
+    int[] sort(int[] o) {
+        int j;
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
+
         //默认前i个都是已排好序的
-        for (int i = 0; i < in.length-1; i++) {
-            for (int j = i; j < 0; j--) {
-                if (in[i + 1] < in[j]) {
+        //从第一个开始
+        for (int i = 1; i < in.length; i++) {
+            int value=in[i];
+            for (j=i-1; j >= 0; j--) {
+                if (value < in[j]) {
                     //将i+1处的数插入到j
-                    insert(in, j, i + 1);
+                    //insert(in, j, i + 1);
                     //若相等，就放在其后一位
-                } else if (in[i + 1]==(in[j]) && i != j) {
-                    insert(in, j + 1, i + 1);
+                    in[j+1]=in[j];
+                } else {
+                    break;
                 }
             }
+            in[j+1]=value;
         }
         return in;
     }

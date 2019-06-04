@@ -10,7 +10,11 @@ package Sort;
 public class HeapSort extends AbstractSort {
 
     @Override
-    int[] sort(int[] in) {
+    int[] sort(int[] o) {
+
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
+
         /*
          *  第一步：将数组堆化
          *  beginIndex = 第一个非叶子节点。

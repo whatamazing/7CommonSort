@@ -5,7 +5,10 @@ package Sort;
  */
 public class SelectionOrder extends AbstractSort{
     @Override
-    int[] sort(int[] in) {
+    int[] sort(int[] o) {
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
+
         for (int i = 0; i < in.length; i++) {
             int min = Integer.MAX_VALUE;
             int index = 0;

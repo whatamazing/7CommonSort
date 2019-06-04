@@ -5,7 +5,9 @@ package Sort;
  */
 public class MergeSort extends AbstractSort {
     @Override
-    int[] sort(int[] in) {
+    int[] sort(int[] o) {
+        int[] in=new int[o.length];
+        System.arraycopy(o,0,in,0,o.length);
         int[] temp = new int[in.length];
         sort(in, 0, in.length - 1, temp);
         return in;
